@@ -2,7 +2,7 @@
 
 # Crystal
 
-wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -11,10 +11,11 @@ Running 30s test @ http://localhost:3000/json
   2492027 requests in 30.10s, 377.88MB read
 Requests/sec:  82782.54
 Transfer/sec:     12.55MB
+```
 
 # Go
 
-wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -23,10 +24,11 @@ Running 30s test @ http://localhost:3000/json
   2333525 requests in 30.08s, 311.56MB read
 Requests/sec:  77586.84
 Transfer/sec:     10.36MB
+```
 
 # Rust
 
-wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -35,10 +37,11 @@ Running 30s test @ http://localhost:3000/json
   4512797 requests in 30.10s, 598.22MB read
 Requests/sec: 149910.42
 Transfer/sec:     19.87MB
+```
 
 # Deno
 
-wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -47,10 +50,11 @@ Running 30s test @ http://localhost:3000/json
   1681923 requests in 30.04s, 259.85MB read
 Requests/sec:  55996.07
 Transfer/sec:      8.65MB
+```
 
 # Bun
 
-wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -59,10 +63,11 @@ Running 30s test @ http://localhost:3000/json
   2082350 requests in 30.10s, 276.04MB read
 Requests/sec:  69177.80
 Transfer/sec:      9.17MB
+```
 
 # Nim
 
-wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -72,3 +77,4 @@ Running 30s test @ http://localhost:3000/json
   Socket errors: connect 0, read 0, write 0, timeout 102
 Requests/sec:  10869.06
 Transfer/sec:      1.06MB
+```
