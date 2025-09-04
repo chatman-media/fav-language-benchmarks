@@ -59,3 +59,16 @@ Running 30s test @ http://localhost:3000/json
   2082350 requests in 30.10s, 276.04MB read
 Requests/sec:  69177.80
 Transfer/sec:      9.17MB
+
+# Nim
+
+wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+Running 30s test @ http://localhost:3000/json
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    44.80ms   96.42ms   2.00s    98.57%
+    Req/Sec     0.91k   133.67     3.20k    92.26%
+  327033 requests in 30.09s, 31.81MB read
+  Socket errors: connect 0, read 0, write 0, timeout 102
+Requests/sec:  10869.06
+Transfer/sec:      1.06MB

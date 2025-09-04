@@ -1,25 +1,37 @@
-# server.nim
-import asyncdispatch, asynchttpserver, httpcore, json, strutils
-
-proc handleRequest(req: Request) {.async.} =
-  if req.requestMethod == HttpPost and req.path == "/json":
-    try:
-      let body = await req.body
-      let data = parseJson(body)
-      if data.hasKey("number") and data["number"].kind == JInt:
-        let number = data["number"].getInt()
-        let response = %* {"message": "world", "number": number + 1}
-        await req.respond(Http200, response.pretty(), { "Content-Type": "application/json" })
-      else:
-        await req.respond(Http400, "Missing or invalid 'number' field")
-    except:
-      await req.respond(Http400, "Invalid JSON")
-  else:
-    await req.respond(Http404, "Not found")
+import asynchttpserver, asyncdispatch, json, strutils, uri
 
 proc main() {.async.} =
-  let server = newAsyncHttpServer()
-  echo "🚀 Server running on http://localhost:3000"
-  await server.serve(Port(3000), handleRequest)
+  var server = newAsyncHttpServer()
+  
+  proc cb(req: Request) {.async.} =
+    let url = parseUri(req.url.path)
+    
+    if req.reqMethod == HttpPost and url.path == "/json":
+      try:
+        let bodyStr = req.body
+        let bodyJson = parseJson(bodyStr)
+        let number = bodyJson["number"].getInt()
+        
+        let response = %*{
+          "message": "world",
+          "number": number + 1
+        }
+        
+        await req.respond(Http200, $response, 
+          newHttpHeaders([("Content-Type", "application/json")]))
+      except:
+        await req.respond(Http400, "Bad Request")
+    else:
+      await req.respond(Http404, "Not found")
+  
+  server.listen(Port(3000))
+  echo "Server running on port 3000"
+  
+  while true:
+    if server.shouldAcceptRequest():
+      await server.acceptRequest(cb)
+    else:
+      await sleepAsync(10)
 
-wait main()
+when isMainModule:
+  waitFor main()
