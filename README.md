@@ -1,5 +1,32 @@
 # Fav Language Benchmarks
 
+# Rust
+
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+Running 30s test @ http://localhost:3000/json
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.28ms    2.70ms  55.88ms   90.38%
+    Req/Sec    12.58k     2.21k   34.98k    72.41%
+  4512797 requests in 30.10s, 598.22MB read
+Requests/sec: 149910.42
+Transfer/sec:     19.87MB
+```
+
+# Nim
+
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+Running 30s test @ http://localhost:3000/json
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    44.80ms   96.42ms   2.00s    98.57%
+    Req/Sec     0.91k   133.67     3.20k    92.26%
+  327033 requests in 30.09s, 31.81MB read
+  Socket errors: connect 0, read 0, write 0, timeout 102
+Requests/sec:  10869.06
+Transfer/sec:      1.06MB
+```
+
 # Crystal
 
 ```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
@@ -26,32 +53,6 @@ Requests/sec:  77586.84
 Transfer/sec:     10.36MB
 ```
 
-# Rust
-
-```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
-Running 30s test @ http://localhost:3000/json
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.28ms    2.70ms  55.88ms   90.38%
-    Req/Sec    12.58k     2.21k   34.98k    72.41%
-  4512797 requests in 30.10s, 598.22MB read
-Requests/sec: 149910.42
-Transfer/sec:     19.87MB
-```
-
-# Deno
-
-```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
-Running 30s test @ http://localhost:3000/json
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.05ms    1.29ms 121.09ms   86.90%
-    Req/Sec     4.69k   193.69     5.24k    83.92%
-  1681923 requests in 30.04s, 259.85MB read
-Requests/sec:  55996.07
-Transfer/sec:      8.65MB
-```
-
 # Bun
 
 ```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
@@ -65,16 +66,15 @@ Requests/sec:  69177.80
 Transfer/sec:      9.17MB
 ```
 
-# Nim
+# Deno
 
 ```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
 Running 30s test @ http://localhost:3000/json
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    44.80ms   96.42ms   2.00s    98.57%
-    Req/Sec     0.91k   133.67     3.20k    92.26%
-  327033 requests in 30.09s, 31.81MB read
-  Socket errors: connect 0, read 0, write 0, timeout 102
-Requests/sec:  10869.06
-Transfer/sec:      1.06MB
+    Latency     7.05ms    1.29ms 121.09ms   86.90%
+    Req/Sec     4.69k   193.69     5.24k    83.92%
+  1681923 requests in 30.04s, 259.85MB read
+Requests/sec:  55996.07
+Transfer/sec:      8.65MB
 ```
