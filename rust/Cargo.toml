@@ -1,0 +1,17 @@
+# Cargo.toml
+[package]
+name = "json-server"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 3       # максимальная оптимизация
+lto = true          # Link Time Optimization — агрессивная оптимизация между крейтами
+codegen-units = 1   # меньше единиц = больше оптимизаций (но дольше сборка)
+panic = 'abort'     # убирает обработку паник, меньше бинарник
+strip = true        # удаляет отладочную информацию из релизной сборки
+
+[dependencies]
+axum = "0.8.4"
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }

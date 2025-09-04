@@ -1,0 +1,11 @@
+name: json-bench
+version: 0.1.0
+
+authors:
+  - Alexander Kireyev <alexander.kireyev@example.com>
+
+crystal: ">= 1.12.0"
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
