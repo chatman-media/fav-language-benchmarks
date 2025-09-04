@@ -13,20 +13,6 @@ Requests/sec: 149910.42
 Transfer/sec:     19.87MB
 ```
 
-# Nim
-
-```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
-Running 30s test @ http://localhost:3000/json
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    44.80ms   96.42ms   2.00s    98.57%
-    Req/Sec     0.91k   133.67     3.20k    92.26%
-  327033 requests in 30.09s, 31.81MB read
-  Socket errors: connect 0, read 0, write 0, timeout 102
-Requests/sec:  10869.06
-Transfer/sec:      1.06MB
-```
-
 # Crystal
 
 ```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
@@ -77,4 +63,18 @@ Running 30s test @ http://localhost:3000/json
   1681923 requests in 30.04s, 259.85MB read
 Requests/sec:  55996.07
 Transfer/sec:      8.65MB
+```
+
+# Nim (slow, could be a bug)
+
+```wrk -t12 -c400 -d30s -s post_json.lua http://localhost:3000/json
+Running 30s test @ http://localhost:3000/json
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    44.80ms   96.42ms   2.00s    98.57%
+    Req/Sec     0.91k   133.67     3.20k    92.26%
+  327033 requests in 30.09s, 31.81MB read
+  Socket errors: connect 0, read 0, write 0, timeout 102
+Requests/sec:  10869.06
+Transfer/sec:      1.06MB
 ```
