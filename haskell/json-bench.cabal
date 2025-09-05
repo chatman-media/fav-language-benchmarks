@@ -1,0 +1,17 @@
+cabal-version:      2.4
+name:               json-bench
+version:            0.1.0
+author:             Your Name
+maintainer:         you@example.com
+build-type:         Simple
+
+executable json-bench
+  main-is:          Main.hs
+  hs-source-dirs:   app
+  default-language: Haskell2010
+
+  build-depends:
+      base >= 4.14 && < 5
+    , scotty
+    , aeson
+    , text

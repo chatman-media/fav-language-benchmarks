@@ -3,3 +3,4 @@ rust/target/
 node_modules/
 .DS_Store
 .vscode/
+haskell/.stack-work/
